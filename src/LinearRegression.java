@@ -10,17 +10,20 @@ public class LinearRegression {
     private double[][] validationFeatures;
     private double[] validationTargets;
     private int patience;
+    private double lambda;
 
     public LinearRegression(double learningRate, int iterations) {
         this.learningRate = learningRate;
         this.iterations = iterations;
         this.patience = 7;
+        this.lambda = 0.001;
     }
 
-    public LinearRegression(double learningRate, int iterations, int patience) {
+    public LinearRegression(double learningRate, int iterations, int patience, double lambda) {
         this.learningRate = learningRate;
         this.iterations = iterations;
         this.patience = patience;
+        this.lambda = lambda;
     }
 
     public LinearRegression fit(double[][] features, double[] targets) {
@@ -109,7 +112,7 @@ public class LinearRegression {
         dBias = -2 * dBias / this.noOfTrainingPoints;
 
         for (int j = 0; j < this.noOfFeatures; j++) {
-            this.weights[j] = this.weights[j] - this.learningRate * dWeights[j];
+            weights[j] = weights[j] * (1 - learningRate * lambda) - learningRate * dWeights[j];
         }
         this.bias = this.bias - this.learningRate * dBias;
     }

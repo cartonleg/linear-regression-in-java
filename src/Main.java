@@ -9,7 +9,7 @@ public class Main {
             standardizer.fit(trainFeatures);
             double[][] standardizedTrainFeatures = standardizer.transform(trainFeatures);
 
-            LinearRegression model = new LinearRegression(0.01, 1000, 10);
+            LinearRegression model = new LinearRegression(0.01, 1000, 10, 0.0005);
             model.fit(standardizedTrainFeatures, trainTargets, 0.8);
 
 
