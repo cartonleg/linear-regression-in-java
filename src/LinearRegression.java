@@ -127,7 +127,7 @@ public class LinearRegression {
         return results;
     }
 
-    private double calculateMSE(double[] predictions, double[] targets) {
+    public double calculateMSE(double[] predictions, double[] targets) {
         double sum = 0.0;
         for (int i = 0; i < predictions.length; i++) {
             double error = targets[i] - predictions[i];
