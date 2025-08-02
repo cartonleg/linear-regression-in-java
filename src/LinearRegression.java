@@ -138,13 +138,4 @@ public class LinearRegression {
         }
         return sum / predictions.length;
     }
-
-
-    public double[][] getValidationFeatures() {
-        return validationFeatures;
-    }
-
-    public double[] getValidationTargets() {
-        return validationTargets;
-    }
 }
